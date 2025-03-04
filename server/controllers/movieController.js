@@ -1,4 +1,4 @@
-// server/controllers/movieController.js
+
 const Movie = require('../models/Movie');
 const movieQueue = require('../queue/movieQueue');
 

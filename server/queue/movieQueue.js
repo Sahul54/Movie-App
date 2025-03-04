@@ -4,7 +4,7 @@ const Movie = require('../models/Movie');
 const QUEUE = 'movieQueue';
 let channel;
 
-// ✅ CloudAMQP URL from environment variables
+// CloudAMQP URL from environment variables
 const RABBITMQ_URL = process.env.CLOUDAMQP_URL || 'amqps://maonvmfq:sHhbWh42m5rmPPWoc6Byfq5BObzIIpRw@puffin.rmq2.cloudamqp.com/maonvmfq';
 
 // RabbitMQ connection setup
@@ -18,7 +18,7 @@ const initQueue = async () => {
     await channel.assertQueue(QUEUE, { durable: true });
     console.log(`Queue '${QUEUE}' initialized successfully`);
 
-    // ✅ Queue initialize hone ke baad processing start karein
+    // Queue initialize hone ke baad processing start karein
     processQueue();
   } catch (err) {
     console.error('Queue initialization error:', err);
