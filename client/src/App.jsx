@@ -57,10 +57,25 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         {/* Protected route for any logged-in user */}
-        <Route path="/profile" element={<PrivateRoute><div>User Profile</div></PrivateRoute>} />
+        <Route path="/profile" element={
+            <PrivateRoute>
+              <div>User Profile</div>
+            </PrivateRoute>
+          } 
+        />
         {/* Admin-only routes */}
-        <Route path="/admin/add" element={<AdminRoute><AddMoviePage /></AdminRoute>} />
-        <Route path="/admin/edit/:id" element={<AdminRoute><EditMoviePage /></AdminRoute>} />
+        <Route path="/admin/add" element={
+            <AdminRoute>
+              <AddMoviePage />
+            </AdminRoute>
+            } 
+          />
+        <Route path="/admin/edit/:id" element={
+            <AdminRoute>
+              <EditMoviePage />
+            </AdminRoute>
+          } 
+        />
       </Routes>
     </>
   );

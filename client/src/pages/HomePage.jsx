@@ -1,4 +1,4 @@
-
+// src/pages/HomePage.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import MovieCard from '../components/MovieCard';

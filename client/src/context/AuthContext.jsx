@@ -16,19 +16,22 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   // Decode token to get user info (e.g., role)
-  useEffect(() => {
-    if (token) {
-      try {
-        const decoded = jwtDecode(token);
-        setUser({ id: decoded.id, role: decoded.role });
-      } catch (error) {
-        console.error("Error decoding token", error);
-        setUser(null);
-      }
-    } else {
+  // In AuthContext.jsx useEffect
+useEffect(() => {
+  if (token) {
+    try {
+      const decoded = jwtDecode(token);
+      console.log("Decoded token:", decoded); // Debug log
+      setUser({ id: decoded.id, role: decoded.role });
+    } catch (error) {
+      console.error("Error decoding token", error);
       setUser(null);
     }
-  }, [token]);
+  } else {
+    setUser(null);
+  }
+}, [token]);
+
 
   const API_URL = 'http://localhost:5000/api/auth';
 
